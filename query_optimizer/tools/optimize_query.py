@@ -1,108 +1,68 @@
 """
-Tool for optimizing natural language queries.
+Query optimization tool that uses Gemini to structure natural language queries.
 """
 
 import logging
 from typing import Dict, List, Optional
 import json
-
-import spacy
-from sentence_transformers import SentenceTransformer
-
-from ..config import (
-    DEFAULT_NLP_MODEL,
-    DEFAULT_EMBEDDING_MODEL,
-    MAX_SUB_QUERIES,
-)
+import google.generativeai as genai
+import os
 
 logger = logging.getLogger(__name__)
 
-# Initialize NLP model
-_nlp_model = None
+# Initialize Gemini
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+model = genai.GenerativeModel('gemini-2.0-flash')
 
-def get_nlp_model():
-    """Get or initialize the spaCy model."""
-    global _nlp_model
-    if _nlp_model is None:
-        _nlp_model = spacy.load(DEFAULT_NLP_MODEL)
-    return _nlp_model
-
-def optimize_query_tool(query: str, analysis_json: str = "") -> dict:
+def optimize_query_tool(query: str) -> dict:
     """
-    Optimize a natural language query based on its analysis.
-
+    Optimize a natural language query using Gemini to create a structured output.
+    
     Args:
         query (str): The query to optimize
-        analysis_json (str): JSON string containing the analysis results from analyze_query_tool
-
+        
     Returns:
-        dict: A dictionary containing:
-            - status: Success or error status
-            - message: Description of the result
-            - optimized_query: Dictionary containing:
-                - main_query: The main optimized query
-                - sub_queries: List of sub-queries
-                - context: Additional context
-                - constraints: Query constraints
+        dict: Structured query output containing main query, sub-queries, key terms, and context
     """
     try:
-        # Parse analysis JSON if provided
-        analysis = json.loads(analysis_json) if analysis_json else None
+        # Create prompt for Gemini
+        prompt = f"""Analyze this query and provide a structured response in JSON format:
+        Query: {query}
         
-        if analysis and analysis.get("status") != "success":
-            return {
-                "status": "error",
-                "message": "Invalid analysis results",
-                "optimized_query": None
-            }
+        Provide a JSON object with the following structure:
+        {{
+            "main_query": "optimized main query",
+            "sub_queries": ["list of relevant sub-queries"],
+            "key_terms": ["extracted key terms"],
+            "context": {{
+                "domain": "determined domain",
+                "time_period": "current/past/future",
+                "focus": "main focus area"
+            }}
+        }}
+        
+        Ensure the response is valid JSON and maintains the exact structure above."""
 
-        # Get NLP model
-        nlp = get_nlp_model()
+        # Get response from Gemini
+        response = model.generate_content(prompt)
         
-        # Process query
-        doc = nlp(query)
+        # Parse the response as JSON
+        structured_output = json.loads(response.text)
         
-        # If no analysis provided, create basic analysis
-        if not analysis:
-            analysis = {
-                "status": "success",
-                "analysis": {
-                    "entities": [],
-                    "key_terms": [token.text for token in doc if token.pos_ in ["NOUN", "PROPN", "VERB"] and not token.is_stop],
-                    "temporal_aspects": [],
-                    "query_type": "general",
-                    "complexity": 0.5
-                }
-            }
+        return structured_output
         
-        # Generate main query
-        main_query = generate_main_query(doc, analysis)
-        
-        # Generate sub-queries
-        sub_queries = generate_sub_queries(doc, analysis)
-        
-        # Extract context
-        context = extract_context(doc, analysis)
-        
-        # Extract constraints
-        constraints = extract_constraints(doc, analysis)
-        
-        return {
-            "status": "success",
-            "message": "Query optimized successfully",
-            "optimized_query": {
-                "main_query": main_query,
-                "sub_queries": sub_queries[:MAX_SUB_QUERIES],
-                "context": context,
-                "constraints": constraints
-            }
-        }
     except Exception as e:
         logger.error(f"Error optimizing query: {str(e)}")
         return {
-            "status": "error",
-            "message": f"Error optimizing query: {str(e)}",
-            "optimized_query": None
+            "error": f"Error optimizing query: {str(e)}",
+            "main_query": query,
+            "sub_queries": [query],
+            "key_terms": [],
+            "context": {
+                "domain": "unknown",
+                "time_period": "unknown",
+                "focus": "unknown"
+            }
         }
 
 def generate_main_query(doc, analysis: Dict) -> str:
