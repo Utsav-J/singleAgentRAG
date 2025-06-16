@@ -1,0 +1,482 @@
+{
+  "id": "8d366806-9c74-4d9b-8986-a2a053cab7de",
+  "appName": "rag_agent",
+  "userId": "user",
+  "state": {},
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "list the documents that you have"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-0fad21e6-de4a-49de-b3ba-b3f8c8f00546",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "GRnC8ClA",
+      "timestamp": 1750088129.877399
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-b780a5b3-aaba-4506-ac31-94b79f699ac4",
+              "args": {},
+              "name": "list_documents_tool"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 12,
+        "promptTokenCount": 625,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 625
+          }
+        ],
+        "thoughtsTokenCount": 49,
+        "totalTokenCount": 686
+      },
+      "invocationId": "e-0fad21e6-de4a-49de-b3ba-b3f8c8f00546",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "longRunningToolIds": [],
+      "id": "24W3jQYV",
+      "timestamp": 1750088129.8784
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-b780a5b3-aaba-4506-ac31-94b79f699ac4",
+              "name": "list_documents_tool",
+              "response": {
+                "status": "success",
+                "message": "Found 1 documents",
+                "documents": [
+                  {
+                    "name": "VisionTransformer.pdf",
+                    "path": "E:\\Python Stuff\\adk-rag-agent\\rag_agent\\documents\\VisionTransformer.pdf",
+                    "size": 3743814,
+                    "last_modified": 1720636684.0285964
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-0fad21e6-de4a-49de-b3ba-b3f8c8f00546",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "NksSqDWD",
+      "timestamp": 1750088131.425653
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "I found one document: VisionTransformer.pdf. It is located at E:\\Python Stuff\\adk-rag-agent\\rag_agent\\documents\\VisionTransformer.pdf, has a size of 3743814 bytes, and was last modified on 2024-07-11 00:38:04.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 77,
+        "promptTokenCount": 739,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 739
+          }
+        ],
+        "totalTokenCount": 816
+      },
+      "invocationId": "e-0fad21e6-de4a-49de-b3ba-b3f8c8f00546",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "kWu8AE4x",
+      "timestamp": 1750088131.426653
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "what is aperture in the context of photography"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-24eb413b-2a85-4d65-8f7e-7f31d00645f7",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "RaVaZHTl",
+      "timestamp": 1750088206.606492
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-135619a7-e062-41e5-adfd-ef3285ea9a0a",
+              "args": {
+                "query": "what is aperture in the context of photography",
+                "max_results": 5
+              },
+              "name": "rag_query"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 29,
+        "promptTokenCount": 827,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 827
+          }
+        ],
+        "thoughtsTokenCount": 106,
+        "totalTokenCount": 962
+      },
+      "invocationId": "e-24eb413b-2a85-4d65-8f7e-7f31d00645f7",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "longRunningToolIds": [],
+      "id": "mfNItiN8",
+      "timestamp": 1750088206.607494
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-135619a7-e062-41e5-adfd-ef3285ea9a0a",
+              "name": "rag_query",
+              "response": {
+                "status": "success",
+                "message": "Found 5 relevant results",
+                "results": [
+                  {
+                    "text": " 84.15 80.73 87.12 84.37 88.04\nImageNet ReaL 88.85 86.27 89.99 88.28 90.33\nOxford Flowers-102 99.56 99.27 99.56 99.45 99.68\nOxford-IIIT-Pets 95.80 93.40 97.11 95.83 97.56\nTable 5: Top1 accuracy (in %) of Vision Transformer on various datasets when pre-trained on Im-\nageNet, ImageNet-21k or JFT300M. These values correspond to Figure 3 in the main text. Models\nare ﬁne-tuned at 384 resolution. Note t",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 15,
+                    "score": 0.780320493318804,
+                    "rank": 1
+                  },
+                  {
+                    "text": "\u00060:04 93:90\u00060:05 93:25\u00060:05 93:51\u00060:08\u0000\nOxford-IIIT Pets 97:56\u00060:03 97:32\u00060:11 94:67\u00060:15 96:62\u00060:23\u0000\nOxford Flowers-102 99:68\u00060:0299:74\u00060:0099:61\u00060:02 99:63\u00060:03\u0000\nVTAB (19 tasks) 77:63\u00060:23 76:28\u00060:46 72:72\u00060:21 76:29\u00061:70\u0000\nTPUv3-core-days 2:5k 0:68k 0:23k 9:9k 12:3k\nTable 2: Comparison with state of the art on popular image classiﬁcation benchmarks. We re-\nport mean and standard deviation of the",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 6,
+                    "score": 0.7833470142207379,
+                    "rank": 2
+                  },
+                  {
+                    "text": "Published as a conference paper at ICLR 2021\nViT-B/16 ViT-B/32 ViT-L/16 ViT-L/32 ViT-H/14\nImageNet CIFAR-10 98.13 97.77 97.86 97.94 -\nCIFAR-100 87.13 86.31 86.35 87.07 -\nImageNet 77.91 73.38 76.53 71.16 -\nImageNet ReaL 83.57 79.56 82.19 77.83 -\nOxford Flowers-102 89.49 85.43 89.66 86.36 -\nOxford-IIIT-Pets 93.81 92.04 93.64 91.35 -\nImageNet-21k CIFAR-10 98.95 98.79 99.16 99.13 99.27\nCIFAR-100 91.67",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 15,
+                    "score": 0.7834250555037622,
+                    "rank": 3
+                  },
+                  {
+                    "text": "as computed for\n128 example images by averaging the distance between the query pixel and all other pixels, weighted\nby the attention weight. Each dot shows the mean attention distance across images for one of 16\nheads at one layer. Image width is 224 pixels.\nD.5 E MPIRICAL COMPUTATIONAL COSTS\nWe are also interested in real-world speed of the architectures on our hardware, which is not always\nwell ",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 18,
+                    "score": 0.7959611599486535,
+                    "rank": 4
+                  },
+                  {
+                    "text": "ION TRANSFORMER (VIT)\nAn overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D\nsequence of token embeddings. To handle 2D images, we reshape the image x2RH\u0002W\u0002Cinto a\nsequence of ﬂattened 2D patches xp2RN\u0002(P2\u0001C), where (H;W )is the resolution of the original\nimage,Cis the number of channels, (P;P)is the resolution of each image patch, and N=HW=P2\nis the resu",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 3,
+                    "score": 0.7962442548064613,
+                    "rank": 5
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-24eb413b-2a85-4d65-8f7e-7f31d00645f7",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "9Z2C59Jp",
+      "timestamp": 1750088212.10244
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Based on the documents I have, I couldn't find information about what aperture is in the context of photography. The documents seem to be focused on the Vision Transformer model and image classification datasets."
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 39,
+        "promptTokenCount": 2212,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2212
+          }
+        ],
+        "thoughtsTokenCount": 513,
+        "totalTokenCount": 2764
+      },
+      "invocationId": "e-24eb413b-2a85-4d65-8f7e-7f31d00645f7",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "1TgjTvHW",
+      "timestamp": 1750088212.104447
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "what is a vision transformer"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-dcd06eff-7d9e-4c3f-b87a-f73ebe1796f9",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "94ZiIpqt",
+      "timestamp": 1750088223.104538
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-7a527454-7134-45e9-a6ad-b985c45b49df",
+              "args": {
+                "query": "what is a vision transformer",
+                "max_results": 5
+              },
+              "name": "rag_query"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 26,
+        "promptTokenCount": 2258,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2258
+          }
+        ],
+        "thoughtsTokenCount": 52,
+        "totalTokenCount": 2336
+      },
+      "invocationId": "e-dcd06eff-7d9e-4c3f-b87a-f73ebe1796f9",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "longRunningToolIds": [],
+      "id": "443VvAgD",
+      "timestamp": 1750088223.106534
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-7a527454-7134-45e9-a6ad-b985c45b49df",
+              "name": "rag_query",
+              "response": {
+                "status": "success",
+                "message": "Found 5 relevant results",
+                "results": [
+                  {
+                    "text": "pace. See Appendix D.7 for\ndetails.To begin to understand how the Vision Transformer processes im-\nage data, we analyze its internal representations. The ﬁrst layer of\nthe Vision Transformer linearly projects the ﬂattened patches into a\nlower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin-\ncipal components of the the learned embedding ﬁlters. The com-\nponents resemble plausible basi",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 8,
+                    "score": 0.6378373133940234,
+                    "rank": 1
+                  },
+                  {
+                    "text": "ve explored the direct application of Transformers to image recognition. Unlike prior works\nusing self-attention in computer vision, we do not introduce image-speciﬁc inductive biases into\nthe architecture apart from the initial patch extraction step. Instead, we interpret an image as a\nsequence of patches and process it by a standard Transformer encoder as used in NLP. This simple,\nyet scalable, ",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 9,
+                    "score": 0.6412087728552612,
+                    "rank": 2
+                  },
+                  {
+                    "text": "ncoder as used in NLP. This simple,\nyet scalable, strategy works surprisingly well when coupled with pre-training on large datasets.\nThus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation\ndatasets, whilst being relatively cheap to pre-train.\nWhile these initial results are encouraging, many challenges remain. One is to apply ViT to other\ncomputer vision tasks,",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 9,
+                    "score": 0.6455509541194909,
+                    "rank": 3
+                  },
+                  {
+                    "text": "l contribution,yequal advising\nGoogle Research, Brain Team\nfadosovitskiy, neilhoulsby g@google.com\nABSTRACT\nWhile the Transformer architecture has become the de-facto standard for natural\nlanguage processing tasks, its applications to computer vision remain limited. In\nvision, attention is either applied in conjunction with convolutional networks, or\nused to replace certain components of convoluti",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 1,
+                    "score": 0.6455562201159455,
+                    "rank": 4
+                  },
+                  {
+                    "text": "nal\nimage. Note that this resolution adjustment and patch extraction are the only points at which an\ninductive bias about the 2D structure of the images is manually injected into the Vision Transformer.\n4 E XPERIMENTS\nWe evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the\nhybrid. To understand the data requirements of each model, we pre-train on datasets ",
+                    "source_file": "VisionTransformer.pdf",
+                    "page": 4,
+                    "score": 0.6515267828932714,
+                    "rank": 5
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-dcd06eff-7d9e-4c3f-b87a-f73ebe1796f9",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "7tmokDQg",
+      "timestamp": 1750088224.508913
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Based on the documents, a Vision Transformer (ViT) is a model that applies the standard Transformer architecture, commonly used in natural language processing, directly to image recognition tasks.\n\nHere's how it works:\n1.  It interprets an image as a sequence of flattened 2D patches.\n2.  These patches are processed by a standard Transformer encoder.\n3.  Unlike many other computer vision models, it largely avoids introducing image-specific biases into its architecture, except for the initial patch extraction step.\n4.  The first layer of the Vision Transformer linearly projects these flattened patches into a lower-dimensional space.\n\nThis approach has shown to be effective, especially when pre-trained on large datasets, allowing ViT to match or exceed the state of the art on many image classification benchmarks."
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 165,
+        "promptTokenCount": 3013,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3013
+          }
+        ],
+        "thoughtsTokenCount": 270,
+        "totalTokenCount": 3448
+      },
+      "invocationId": "e-dcd06eff-7d9e-4c3f-b87a-f73ebe1796f9",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "RfR1gWcm",
+      "timestamp": 1750088224.510913
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "what are your abilities"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-e67f257b-6e0c-4779-a00d-b5c015ac5657",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "o79rMYZo",
+      "timestamp": 1750088632.321441
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "I have two main abilities:\n\n1.  **Query Documents**: I can answer your questions by searching for relevant information within the documents I have access to.\n2.  **List Documents**: I can list all the documents that are available in my document folder."
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 54,
+        "promptTokenCount": 3184,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3184
+          }
+        ],
+        "thoughtsTokenCount": 83,
+        "totalTokenCount": 3321
+      },
+      "invocationId": "e-e67f257b-6e0c-4779-a00d-b5c015ac5657",
+      "author": "rag_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "PpzzQ6DT",
+      "timestamp": 1750088632.32344
+    }
+  ],
+  "lastUpdateTime": 1750088632.32344
+}
